@@ -1,2 +1,4 @@
 server/vendor
 server/composer.lock
+client/node_modules
+client/package-lock.json
