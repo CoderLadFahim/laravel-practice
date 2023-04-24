@@ -24,4 +24,17 @@ class TodoController extends Controller
 
         return $new_todo;
     }
+
+    public function update(Request $request, Todo $todo) {
+        $todo->name = $request->input('name');
+        $todo->is_completed = $request->input('is_completed');
+        $todo->save();
+
+        return $todo;
+    }
+
+    public function destroy(Todo $todo) {
+        $todo->delete();
+        return $todo;
+    }
 }

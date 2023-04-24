@@ -23,5 +23,5 @@ Route::get('/todos', [TodoController::class, 'index']);
 
 Route::get('/todos/create/', [TodoController::class, 'create']); 
 Route::get('/todos/read/{todo}', [TodoController::class, 'show']); 
-// Route::get('/todos/update/{id}', [TodoController::class, 'show']); 
-// Route::get('/todos/delete/{id}', [TodoController::class, 'show']); 
+Route::get('/todos/update/{todo}', [TodoController::class, 'update']); 
+Route::get('/todos/delete/{todo}', [TodoController::class, 'destroy']); 
