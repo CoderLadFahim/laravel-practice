@@ -20,6 +20,7 @@ class TodoController extends Controller
 
     public function create(Request $request)
     {
+        dd($request);
         $new_todo = Todo::create([
             'name' => $request->name,
             'is_completed' => $request->is_completed,

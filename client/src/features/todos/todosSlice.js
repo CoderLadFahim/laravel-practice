@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const baseUrl = 'http://127.0.0.1:8000';
 const initialState = {
 	todos: [
 		// { text: 'todo', id: Date.now(), isCompleted: false },
@@ -22,6 +23,10 @@ export const todosSlice = createSlice({
 	initialState,
 	reducers: {
 		addTodo: (state, { payload }) => {
+			fetch(`${baseUrl}/todos/create`, {
+			    method: 'post',
+			    body: JSON.stringify(payload)
+			})
 			state.todos = [...state.todos, payload];
 		},
 		deleteTodo: (state, { payload: todoId }) => {
