@@ -26,3 +26,4 @@ class TodoFactory extends Factory
         ];
     }
 }
+

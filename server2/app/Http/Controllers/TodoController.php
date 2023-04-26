@@ -45,3 +45,5 @@ class TodoController extends Controller
         return response()->json(['msg' => 'Todo deleted']); 
     }
 }
+
+

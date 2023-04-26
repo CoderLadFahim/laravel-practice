@@ -18,3 +18,4 @@ class TodoSeeder extends Seeder
         Todo::factory()->count(10)->create();
     }
 }
+
