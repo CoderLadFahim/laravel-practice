@@ -44,6 +44,11 @@ class TodoController extends Controller
         $todo->delete();
         return response()->json(['msg' => 'Todo deleted']); 
     }
+
+    public function getCategory(Todo $todo)
+    {
+        return $todo->category;
+    }
 }
 
 

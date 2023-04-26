@@ -13,4 +13,8 @@ class Todo extends Model
         'name', 
         'is_completed'
     ];
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
