@@ -22,6 +22,9 @@ export const todosSlice = createSlice({
 	name: 'todos',
 	initialState,
 	reducers: {
+		addTodos: (state, {payload}) => {
+		    state.todos = [...payload];
+		},
 		addTodo: (state, { payload }) => {
 			fetch(`${baseUrl}/todos/create`, {
 			    method: 'post',
@@ -46,7 +49,7 @@ export const todosSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo, deleteTodo, clearTodos, changeTodoState } =
+export const { addTodo, deleteTodo, clearTodos, changeTodoState, addTodos } =
 	todosSlice.actions;
 
 export default todosSlice.reducer;

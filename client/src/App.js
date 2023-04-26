@@ -1,12 +1,26 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AppNav from './components/AppNav';
 import Todo from './components/Todo';
 import './App.css';
+import { getTodos } from './helperFunctions';
+import { addTodos } from './features/todos/todosSlice';
 
 function App() {
 	const todos = useSelector((state) => state.todos.todos);
+	const dispatch = useDispatch();
 	const [viewType, setViewType] = useState('all');
+
+	useEffect(() => {
+        getTodos().then((data) => {
+			const todosMapped = data.map((todo) => ({
+				text: todo.name,
+				id: todo.id,
+				isCompleted: Boolean(todo.is_completed),
+			}));
+			dispatch(addTodos(todosMapped));
+		});
+	}, []);
 
 	const renderTodos = (type) => {
 		switch (type) {
