@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->boolean('is_completed');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

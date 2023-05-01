@@ -19,12 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::prefix('todos')->group(function () {
+    Route::get('', [TodoController::class, 'index']);
+    Route::get('/{todo}', [TodoController::class, 'show']);
+    Route::get('/{todo}/category', [TodoController::class, 'getCategory']);
+    Route::get('/create', [TodoController::class, 'create']);
+    Route::get('/update/{todo}', [TodoController::class, 'update']);
+    Route::get('/delete/{todo}', [TodoController::class, 'destroy']);
+});
 
-Route::get('/todos', [TodoController::class, 'index']);
-Route::get('/todos/{todo}', [TodoController::class, 'show']);
-Route::get('/todos/{todo}/category', [TodoController::class, 'getCategory']);
-Route::get('/todos/create', [TodoController::class, 'create']);
-Route::get('/todos/update/{todo}', [TodoController::class, 'update']);
-Route::get('/todos/delete/{todo}', [TodoController::class, 'destroy']);
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::post('/create', [CategoryController::class, 'create']);
+});
 
-Route::get('/categories', [CategoryController::class, 'index']);
