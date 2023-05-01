@@ -30,6 +30,8 @@ Route::prefix('todos')->group(function () {
 
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/{category}', [CategoryController::class, 'show']);
+    Route::get('/{category}/todos', [CategoryController::class, 'getTodos']);
     Route::post('/create', [CategoryController::class, 'create']);
 });
 

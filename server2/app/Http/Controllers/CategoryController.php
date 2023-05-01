@@ -49,9 +49,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        return $category;
     }
 
     /**
@@ -86,5 +86,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getTodos(Category $category)
+    {
+        return $category->todos;
     }
 }
