@@ -23,6 +23,7 @@ class TodoController extends Controller
         $new_todo = Todo::create([
             'name' => $request->name,
             'is_completed' => $request->is_completed,
+            'category_id' => $request->category_id,
         ]);
 
         return $new_todo;
@@ -33,6 +34,7 @@ class TodoController extends Controller
         $todo->update([
             'name' => $request->name,
             'is_completed' => $request->is_completed,
+            'category_id' => $request->category_id,
         ]);
 
         return $todo;

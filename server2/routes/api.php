@@ -23,9 +23,9 @@ Route::prefix('todos')->group(function () {
     Route::get('', [TodoController::class, 'index']);
     Route::get('/{todo}', [TodoController::class, 'show']);
     Route::get('/{todo}/category', [TodoController::class, 'getCategory']);
-    Route::get('/create', [TodoController::class, 'create']);
-    Route::get('/update/{todo}', [TodoController::class, 'update']);
-    Route::get('/delete/{todo}', [TodoController::class, 'destroy']);
+    Route::post('/create', [TodoController::class, 'create']);
+    Route::put('/update/{todo}', [TodoController::class, 'update']);
+    Route::delete('/delete/{todo}', [TodoController::class, 'destroy']);
 });
 
 Route::prefix('categories')->group(function () {

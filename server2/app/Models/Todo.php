@@ -11,7 +11,8 @@ class Todo extends Model
 
     protected $fillable = [
         'name', 
-        'is_completed'
+        'is_completed',
+        'category_id'
     ];
 
     public function category() {
